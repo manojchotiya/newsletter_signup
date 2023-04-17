@@ -43,8 +43,10 @@ var jsonData=JSON.stringify(data);
 const url= "https://us21.api.mailchimp.com/3.0/lists/b98b059f2a";
 const options={
     method:"POST",
-    auth:"manoj1:"+ process.env.mailchimp_api_key 
+    auth:"manoj1:"+ process.env.mailchimp_api_key
+
 }
+
 const request=https.request(url,options,function(response){
 
         if(response.statusCode===200){

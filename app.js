@@ -1,5 +1,6 @@
 const express=require("express");
 const request=require("request");
+require("dotenv").config();
 const bodyParser=require("body-parser");
 const https=require("https");
 
@@ -42,7 +43,7 @@ var jsonData=JSON.stringify(data);
 const url= "https://us21.api.mailchimp.com/3.0/lists/b98b059f2a";
 const options={
     method:"POST",
-    auth:"manoj1:2201166d0aab0ea05ccb860b701af5f5-us21"
+    auth:"manoj1:"+ process.env.mailchimp_api_key 
 }
 const request=https.request(url,options,function(response){
 
@@ -52,9 +53,9 @@ const request=https.request(url,options,function(response){
        else{
         res.sendFile(__dirname+"/failure.html");
        } 
-    //  response.on("data",function(data){
-    //     // console.log(JSON.parse(data));
-    //  });
+     response.on("data",function(data){
+        console.log(JSON.parse(data));
+     });
 });
 
 request.write(jsonData);
@@ -78,5 +79,5 @@ request.end();
 // b98b059f2a
 
 
-app.listen(process.env.PORT||3000,function(){
+app.listen(3000,function(){
 console.log("listening to port 3000");});

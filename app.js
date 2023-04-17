@@ -53,9 +53,9 @@ const request=https.request(url,options,function(response){
        else{
         res.sendFile(__dirname+"/failure.html");
        } 
-     response.on("data",function(data){
-        console.log(JSON.parse(data));
-     });
+//      response.on("data",function(data){
+//         console.log(JSON.parse(data));
+//      });
 });
 
 request.write(jsonData);
@@ -79,5 +79,5 @@ request.end();
 // b98b059f2a
 
 
-app.listen(3000,function(){
+app.listen(process.env.PORT,function(){
 console.log("listening to port 3000");});

@@ -53,9 +53,9 @@ const request=https.request(url,options,function(response){
        else{
         res.sendFile(__dirname+"/failure.html");
        } 
-     response.on("data",function(data){
-        console.log(JSON.parse(data));
-     });
+//      response.on("data",function(data){
+//         console.log(JSON.parse(data));
+//      });
 });
 
 request.write(jsonData);
@@ -66,5 +66,18 @@ request.end();
 
 
 
-app.listen(process.env.PORT||3000,function(){
+// app.post("/success",function(req,res){
+  
+//     res.sendFile(__dirname+"/success.html");
+
+// });
+
+//api
+// 2201166d0aab0ea05ccb860b701af5f5-us21
+
+//LIST ID
+// b98b059f2a
+
+
+app.listen(3000,function(){
 console.log("listening to port 3000");});
